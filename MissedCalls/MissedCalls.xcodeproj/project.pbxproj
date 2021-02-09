@@ -92,6 +92,7 @@
 		6636247E25D2F502005DB885 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6636248525D304C6005DB885 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +117,13 @@
 			children = (
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		6636248525D304C6005DB885 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
