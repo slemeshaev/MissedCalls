@@ -22,6 +22,7 @@ class MissedCallsCell: UITableViewCell {
     private let talkTimeLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.italicSystemFont(ofSize: 13)
+        label.textColor = .darkGray
         label.text = "00:13"
         return label
     }()
@@ -53,6 +54,26 @@ class MissedCallsCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        let stackViewCall = UIStackView(arrangedSubviews: [callImageView, talkTimeLabel])
+        stackViewCall.axis = .vertical
+        stackViewCall.spacing = 12
+        
+        addSubview(stackViewCall)
+        callImageView.setDimensions(height: 40, width: 40)
+        talkTimeLabel.anchor(top: callImageView.bottomAnchor, paddingTop: 12)
+        stackViewCall.anchor(left: leftAnchor, paddingLeft: 17)
+        
+        let stackViewContact = UIStackView(arrangedSubviews: [nameOfContactLabel, numberOfContactLabel])
+        stackViewContact.axis = .vertical
+        stackViewContact.spacing = 14
+        
+        addSubview(stackViewContact)
+        stackViewContact.centerY(inView: callImageView)
+        stackViewContact.anchor(top: topAnchor, left: callImageView.rightAnchor, right: rightAnchor, paddingTop: 16, paddingLeft: 15, paddingRight: 16)
+        
+        addSubview(timestampLabel)
+        timestampLabel.anchor(top: topAnchor, right: rightAnchor, paddingTop: 64, paddingRight: 16)
     }
     
     required init?(coder: NSCoder) {
