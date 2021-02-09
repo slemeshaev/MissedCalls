@@ -38,8 +38,8 @@ class MissedCallsController: UIViewController {
     
     func configurationTableView() {
         tableView.backgroundColor = .white
-        tableView.rowHeight = 80
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: MissedCallsController.reuseId)
+        tableView.rowHeight = 96
+        tableView.register(MissedCallsCell.self, forCellReuseIdentifier: MissedCallsController.reuseId)
         
         tableView.tableFooterView = UIView()
         tableView.delegate = self
