@@ -13,12 +13,14 @@ class MissedCallsController: UIViewController {
     
     private let tableView = UITableView()
     private static let reuseId = "MissedCallsCell"
+    private var networkService = NetworkService()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureUI()
+        self.networkService.getClients()
     }
     
     override func viewWillAppear(_ animated: Bool) {

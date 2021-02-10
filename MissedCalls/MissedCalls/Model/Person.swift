@@ -7,39 +7,23 @@
 
 import Foundation
 
-struct Person {
-    let id: String
-    let client: Client
-    let businessNumber: BusinessNumber
-    let duration: String
-    
-    init(json: [String: Any]) {
-        self.id = json["id"] as? String ?? ""
-        let clientJson = json["client"] as! [String: Any]
-        self.client = Client(json: clientJson)
-        let businessNumberJson = json["businessNumber"] as! [String: Any]
-        self.businessNumber = BusinessNumber(json: businessNumberJson)
-        self.duration = json["duration"] as? String ?? ""
-    }
-    
+struct ClientsResponse: Decodable {
+    let requests: [Person]?
 }
 
-struct Client {
-    let address: String
-    let Name: String
-    
-    init(json: [String: Any]) {
-        self.address = json["address"] as? String ?? ""
-        self.Name = json["Name"] as? String ?? ""
-    }
+struct Person: Decodable {
+    let id: String?
+    let client: Client?
+    let businessNumber: BusinessNumber?
+    let duration: String?
 }
 
-struct BusinessNumber {
+struct Client: Decodable {
+    let address: String?
+    let Name: String?
+}
+
+struct BusinessNumber: Decodable {
     let number: String
     let label: String
-    
-    init(json: [String: Any]) {
-        self.number = json["number"] as? String ?? ""
-        self.label = json["label"] as? String ?? ""
-    }
 }
