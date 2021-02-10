@@ -13,19 +13,38 @@ class MissedCallsController: UIViewController {
     
     private let tableView = UITableView()
     private static let reuseId = "MissedCallsCell"
-    private var networkService = NetworkService()
+    private var persons: [Person] = []
+    private var networkDataFetcher = NetworkDataFetcher()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureUI()
-        self.networkService.getClients()
+        fetchClients()
+        persons.forEach {
+            print("Human: \(String(describing: $0.abonent))")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar(withTitle: "Missed Calls", prefersLargeTitles: true)
+    }
+    
+    // MARK: - API
+    
+    func fetchClients() {
+        self.networkDataFetcher.getClients { (result) in
+            guard let result = result else { return }
+            var clients: Set<Person> = []
+            result.requests?.forEach {
+                clients.insert($0)
+            }
+            self.persons = Array(clients)
+//            print("Count persons: \(self.persons.count)")
+//            print("Count clients: \(clients.count)")
+        }
     }
     
     // MARK: - Helpers
@@ -69,11 +88,13 @@ extension MissedCallsController: UITableViewDelegate {
 extension MissedCallsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return persons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MissedCallsController.reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MissedCallsController.reuseId, for: indexPath) as! MissedCallsCell
+        //cell.client =
+        //cell.client = persons[indexPath.row]
         return cell
     }
     

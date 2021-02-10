@@ -13,17 +13,18 @@ struct ClientsResponse: Hashable, Decodable {
 
 struct Person: Hashable, Decodable {
     let id: String?
-    let client: Client?
+    let abonent: Abonent?
+    let created: String?
     let businessNumber: BusinessNumber?
     let duration: String?
 }
 
-struct Client: Hashable, Decodable {
+struct Abonent: Hashable, Decodable {
     let address: String?
     let Name: String?
 }
 
 struct BusinessNumber: Hashable, Decodable {
-    let number: String
-    let label: String
+    let number: String?
+    let label: String?
 }

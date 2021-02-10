@@ -11,6 +11,10 @@ class MissedCallsCell: UITableViewCell {
     
     // MARK: - Properties
     
+    var client: Person? {
+        didSet { configure() }
+    }
+    
     private let callImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -80,6 +84,15 @@ class MissedCallsCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Helpers
+    
+    func configure() {
+        guard let client = client else { return }
+        talkTimeLabel.text = client.duration
+        nameOfContactLabel.text = client.abonent?.Name
+        numberOfContactLabel.text = client.abonent?.address
+        timestampLabel.text = client.created
+    }
     
     
 }

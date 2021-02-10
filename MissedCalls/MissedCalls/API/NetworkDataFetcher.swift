@@ -9,7 +9,7 @@ import Foundation
 
 class NetworkDataFetcher {
     
-    static func getClients(completion: @escaping (ClientsResponse?) -> ()) {
+    func getClients(completion: @escaping (ClientsResponse?) -> ()) {
         
         let urlString = "https://5e3c202ef2cb300014391b5a.mockapi.io/testapi"
         guard let url = URL(string: urlString) else { return }
@@ -19,9 +19,7 @@ class NetworkDataFetcher {
             guard error == nil else { return }
             do {
                 let clientsJson = try JSONDecoder().decode(ClientsResponse.self, from: data)
-                print(clientsJson)
-//                let array = json as! [[String: Any]]
-//                let users = array.map { User(json: $0) }
+                completion(clientsJson)
             } catch let error {
                 print(error)
             }
