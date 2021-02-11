@@ -9,6 +9,8 @@ import Foundation
 
 final class NetworkDataFetcher {
     
+    private let dataParser = DataParser()
+    
     func fetchClients(completion: @escaping (Result<[MissedCall], Error>) -> ()) {
         
         let urlString = "https://5e3c202ef2cb300014391b5a.mockapi.io/testapi"
