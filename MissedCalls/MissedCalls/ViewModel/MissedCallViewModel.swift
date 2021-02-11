@@ -1,5 +1,5 @@
 //
-//  ListMissedCallViewModel.swift
+//  MissedCallViewModel.swift
 //  MissedCalls
 //
 //  Created by Станислав Лемешаев on 11.02.2021.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ListMissedCallViewModel {
+final class MissedCallViewModel {
     
     private let missedCalls: MissedCall
     
