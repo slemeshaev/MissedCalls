@@ -13,7 +13,6 @@ class MissedCallsController: UIViewController {
     
     private let tableView = UITableView()
     private static let reuseId = "MissedCallsCell"
-    private var persons: [Person] = []
     private var networkDataFetcher = NetworkDataFetcher()
     
     // MARK: - Lifecycle
@@ -32,25 +31,7 @@ class MissedCallsController: UIViewController {
     // MARK: - API
     
     func fetchClients() {
-        self.networkDataFetcher.getClients { (result) in
-            guard let result = result else { return }
-            //print("Result: \(result)")
-            var clients: Set<Client> = []
-            var businessNumbers: Set<BusinessNumber> = []
-            result.requests?.forEach {
-                if let _client = $0.client {
-                    clients.insert(_client)
-                }
-                if let _businessNumber = $0.businessNumber {
-                    businessNumbers.insert(_businessNumber)
-                }
-            }
-            let callers = clients.compactMap({ $0.Name })
-            let phoneNumbers = businessNumbers.compactMap({ $0.number })
-            print("Clients: \(callers)")
-            print("phoneNumbers: \(phoneNumbers)")
-            
-        }
+        // 
     }
     
     // MARK: - Helpers

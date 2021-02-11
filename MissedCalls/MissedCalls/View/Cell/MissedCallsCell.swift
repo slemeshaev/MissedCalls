@@ -89,8 +89,8 @@ class MissedCallsCell: UITableViewCell {
     func configure() {
         guard let person = person else { return }
         talkTimeLabel.text = person.duration
-        nameOfContactLabel.text = person.client?.Name
-        numberOfContactLabel.text = person.client?.address
+        nameOfContactLabel.text = person.client.Name
+        numberOfContactLabel.text = person.client.address
         timestampLabel.text = person.created
     }
     

@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+protocol TableMissedCallViewModelType: class {
+    var name: String { get }
+    var number: String { get }
+    var duration: String { get }
+    var dataCall: String { get }
+}
