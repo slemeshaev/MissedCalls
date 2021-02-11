@@ -21,7 +21,7 @@ class NetworkDataFetcher {
                 let clientsJson = try JSONDecoder().decode(ClientsResponse.self, from: data)
                 completion(clientsJson)
             } catch let error {
-                print(error)
+                print(error.localizedDescription)
             }
         }.resume()
         

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct MissedCall {
+    let name: String
+    let number: String
+    let businessName: String
+    let businessNumber: String
+    let duration: String
+    let dataCall: String
+}

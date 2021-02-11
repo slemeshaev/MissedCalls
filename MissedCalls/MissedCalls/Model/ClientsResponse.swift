@@ -7,24 +7,24 @@
 
 import Foundation
 
-struct ClientsResponse: Hashable, Decodable {
-    let requests: [Person]?
+struct ClientsResponse: Decodable {
+    let requests: [Person]
 }
 
-struct Person: Hashable, Decodable {
-    let id: String?
-    let abonent: Abonent?
-    let created: String?
-    let businessNumber: BusinessNumber?
-    let duration: String?
+struct Person: Decodable {
+    let id: String
+    let client: Client
+    let created: String
+    let businessNumber: BusinessNumber
+    let duration: String
 }
 
-struct Abonent: Hashable, Decodable {
-    let address: String?
+struct Client: Decodable {
+    let address: String
     let Name: String?
 }
 
-struct BusinessNumber: Hashable, Decodable {
-    let number: String?
-    let label: String?
+struct BusinessNumber: Decodable {
+    let number: String
+    let label: String
 }

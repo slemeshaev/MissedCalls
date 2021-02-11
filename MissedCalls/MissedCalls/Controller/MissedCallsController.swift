@@ -22,9 +22,6 @@ class MissedCallsController: UIViewController {
         super.viewDidLoad()
         cofigureUI()
         fetchClients()
-        persons.forEach {
-            print("Human: \(String(describing: $0.abonent))")
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,13 +34,22 @@ class MissedCallsController: UIViewController {
     func fetchClients() {
         self.networkDataFetcher.getClients { (result) in
             guard let result = result else { return }
-            var clients: Set<Person> = []
+            //print("Result: \(result)")
+            var clients: Set<Client> = []
+            var businessNumbers: Set<BusinessNumber> = []
             result.requests?.forEach {
-                clients.insert($0)
+                if let _client = $0.client {
+                    clients.insert(_client)
+                }
+                if let _businessNumber = $0.businessNumber {
+                    businessNumbers.insert(_businessNumber)
+                }
             }
-            self.persons = Array(clients)
-//            print("Count persons: \(self.persons.count)")
-//            print("Count clients: \(clients.count)")
+            let callers = clients.compactMap({ $0.Name })
+            let phoneNumbers = businessNumbers.compactMap({ $0.number })
+            print("Clients: \(callers)")
+            print("phoneNumbers: \(phoneNumbers)")
+            
         }
     }
     
@@ -93,8 +99,7 @@ extension MissedCallsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MissedCallsController.reuseId, for: indexPath) as! MissedCallsCell
-        //cell.client =
-        //cell.client = persons[indexPath.row]
+        cell.person = persons[indexPath.row]
         return cell
     }
     

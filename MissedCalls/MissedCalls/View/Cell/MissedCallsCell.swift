@@ -11,7 +11,7 @@ class MissedCallsCell: UITableViewCell {
     
     // MARK: - Properties
     
-    var client: Person? {
+    var person: Person? {
         didSet { configure() }
     }
     
@@ -87,11 +87,11 @@ class MissedCallsCell: UITableViewCell {
     // MARK: - Helpers
     
     func configure() {
-        guard let client = client else { return }
-        talkTimeLabel.text = client.duration
-        nameOfContactLabel.text = client.abonent?.Name
-        numberOfContactLabel.text = client.abonent?.address
-        timestampLabel.text = client.created
+        guard let person = person else { return }
+        talkTimeLabel.text = person.duration
+        nameOfContactLabel.text = person.client?.Name
+        numberOfContactLabel.text = person.client?.address
+        timestampLabel.text = person.created
     }
     
     
