@@ -7,9 +7,9 @@
 
 import Foundation
 
-class NetworkDataFetcher {
+final class NetworkDataFetcher {
     
-    func getClients(completion: @escaping (ClientsResponse?) -> ()) {
+    func fetchClients(completion: @escaping (Result<[MissedCall], Error>) -> ()) {
         
         let urlString = "https://5e3c202ef2cb300014391b5a.mockapi.io/testapi"
         guard let url = URL(string: urlString) else { return }
