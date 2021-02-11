@@ -7,28 +7,28 @@
 
 import Foundation
 
-final class MissedCallViewModel {
+struct MissedCallViewModel {
     
-    private let missedCalls: MissedCall
+    private let missedCall: MissedCall
     
     var name: String {
-        return missedCalls.name
+        return missedCall.name
     }
 
     var number: String {
-        return missedCalls.number
+        return missedCall.number
     }
     
     var duration: String {
-        return missedCalls.duration
+        return missedCall.duration
     }
     
     var dataCall: String {
-        return missedCalls.dataCall
+        return missedCall.dataCall
     }
     
     init(missedCalls: MissedCall) {
-        self.missedCalls = missedCalls
+        self.missedCall = missedCalls
     }
     
 }

@@ -26,7 +26,7 @@ final class NetworkDataFetcher {
                 }
                 
                 if let data = data {
-                    guard let data = self.decodeData.decodeJSON(data: data, decoder: JSONDecoder()) else { return }
+                    guard let data = DecodeData.decodeJSON(data: data, decoder: JSONDecoder()) else { return }
                     
                     DispatchQueue.main.async {
                         completion(.success(data))

@@ -9,7 +9,7 @@ import UIKit
 
 struct DecodeData {
     
-    func decodeJSON(data: Data, decoder: JSONDecoder) -> [MissedCall]? {
+    static func decodeJSON(data: Data, decoder: JSONDecoder) -> [MissedCall]? {
         var calls: [MissedCall] = []
         do {
             let missedCall = try decoder.decode(ClientsResponse.self, from: data)
