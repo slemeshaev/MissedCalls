@@ -13,10 +13,15 @@
 		6636246C25D2EBB4005DB885 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6636246B25D2EBB4005DB885 /* Assets.xcassets */; };
 		6636246F25D2EBB4005DB885 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6636246D25D2EBB4005DB885 /* LaunchScreen.storyboard */; };
 		6636247925D2F4AA005DB885 /* MissedCallsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636247825D2F4AA005DB885 /* MissedCallsController.swift */; };
-		6636248325D2F572005DB885 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636248225D2F572005DB885 /* Extensions.swift */; };
 		6636248825D30AAD005DB885 /* MissedCallsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636248725D30AAD005DB885 /* MissedCallsCell.swift */; };
-		6636248D25D3324B005DB885 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636248C25D3324B005DB885 /* Person.swift */; };
-		6645B74E25D456A100986BAD /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B74D25D456A100986BAD /* NetworkService.swift */; };
+		6636248D25D3324B005DB885 /* ClientsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6636248C25D3324B005DB885 /* ClientsResponse.swift */; };
+		6645B74E25D456A100986BAD /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B74D25D456A100986BAD /* NetworkDataFetcher.swift */; };
+		6645B75A25D533BD00986BAD /* MissedCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B75925D533BD00986BAD /* MissedCall.swift */; };
+		6645B75D25D5371900986BAD /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B75C25D5371900986BAD /* DataParser.swift */; };
+		6645B76025D5524400986BAD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B75F25D5524400986BAD /* UIView+Extension.swift */; };
+		6645B76325D5529A00986BAD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B76225D5529A00986BAD /* UIViewController+Extension.swift */; };
+		6645B76725D552C500986BAD /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B76625D552C500986BAD /* String+Extension.swift */; };
+		6645B76A25D5531400986BAD /* DateFormatter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6645B76925D5531400986BAD /* DateFormatter+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,10 +33,15 @@
 		6636246E25D2EBB4005DB885 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6636247025D2EBB4005DB885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6636247825D2F4AA005DB885 /* MissedCallsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedCallsController.swift; sourceTree = "<group>"; };
-		6636248225D2F572005DB885 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6636248725D30AAD005DB885 /* MissedCallsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedCallsCell.swift; sourceTree = "<group>"; };
-		6636248C25D3324B005DB885 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		6645B74D25D456A100986BAD /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		6636248C25D3324B005DB885 /* ClientsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientsResponse.swift; sourceTree = "<group>"; };
+		6645B74D25D456A100986BAD /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		6645B75925D533BD00986BAD /* MissedCall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissedCall.swift; sourceTree = "<group>"; };
+		6645B75C25D5371900986BAD /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		6645B75F25D5524400986BAD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6645B76225D5529A00986BAD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		6645B76625D552C500986BAD /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		6645B76925D5531400986BAD /* DateFormatter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +80,7 @@
 				6636247E25D2F502005DB885 /* View */,
 				6636247F25D2F509005DB885 /* ViewModel */,
 				6636247D25D2F4C6005DB885 /* Controller */,
-				6636248125D2F519005DB885 /* API */,
+				6636248125D2F519005DB885 /* Service */,
 				6636248025D2F511005DB885 /* Helpers */,
 				6636246825D2EBB3005DB885 /* Main.storyboard */,
 				6636246B25D2EBB4005DB885 /* Assets.xcassets */,
@@ -83,7 +93,8 @@
 		6636247C25D2F4BD005DB885 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				6636248C25D3324B005DB885 /* Person.swift */,
+				6636248C25D3324B005DB885 /* ClientsResponse.swift */,
+				6645B75925D533BD00986BAD /* MissedCall.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,17 +125,21 @@
 		6636248025D2F511005DB885 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				6636248225D2F572005DB885 /* Extensions.swift */,
+				6645B75F25D5524400986BAD /* UIView+Extension.swift */,
+				6645B76225D5529A00986BAD /* UIViewController+Extension.swift */,
+				6645B76625D552C500986BAD /* String+Extension.swift */,
+				6645B76925D5531400986BAD /* DateFormatter+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		6636248125D2F519005DB885 /* API */ = {
+		6636248125D2F519005DB885 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				6645B74D25D456A100986BAD /* NetworkService.swift */,
+				6645B74D25D456A100986BAD /* NetworkDataFetcher.swift */,
+				6645B75C25D5371900986BAD /* DataParser.swift */,
 			);
-			path = API;
+			path = Service;
 			sourceTree = "<group>";
 		};
 		6636248525D304C6005DB885 /* Cell */ = {
@@ -205,13 +220,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6636248D25D3324B005DB885 /* Person.swift in Sources */,
+				6636248D25D3324B005DB885 /* ClientsResponse.swift in Sources */,
+				6645B76725D552C500986BAD /* String+Extension.swift in Sources */,
+				6645B76A25D5531400986BAD /* DateFormatter+Extension.swift in Sources */,
+				6645B76325D5529A00986BAD /* UIViewController+Extension.swift in Sources */,
 				6636246325D2EBB3005DB885 /* AppDelegate.swift in Sources */,
 				6636247925D2F4AA005DB885 /* MissedCallsController.swift in Sources */,
 				6636246525D2EBB3005DB885 /* SceneDelegate.swift in Sources */,
-				6636248325D2F572005DB885 /* Extensions.swift in Sources */,
+				6645B75A25D533BD00986BAD /* MissedCall.swift in Sources */,
 				6636248825D30AAD005DB885 /* MissedCallsCell.swift in Sources */,
-				6645B74E25D456A100986BAD /* NetworkService.swift in Sources */,
+				6645B74E25D456A100986BAD /* NetworkDataFetcher.swift in Sources */,
+				6645B76025D5524400986BAD /* UIView+Extension.swift in Sources */,
+				6645B75D25D5371900986BAD /* DataParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

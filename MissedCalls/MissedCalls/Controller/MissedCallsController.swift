@@ -13,19 +13,44 @@ class MissedCallsController: UIViewController {
     
     private let tableView = UITableView()
     private static let reuseId = "MissedCallsCell"
-    private var networkService = NetworkService()
+    private var persons: [Person] = []
+    private var networkDataFetcher = NetworkDataFetcher()
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         cofigureUI()
-        self.networkService.getClients()
+        fetchClients()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureNavigationBar(withTitle: "Missed Calls", prefersLargeTitles: true)
+    }
+    
+    // MARK: - API
+    
+    func fetchClients() {
+        self.networkDataFetcher.getClients { (result) in
+            guard let result = result else { return }
+            //print("Result: \(result)")
+            var clients: Set<Client> = []
+            var businessNumbers: Set<BusinessNumber> = []
+            result.requests?.forEach {
+                if let _client = $0.client {
+                    clients.insert(_client)
+                }
+                if let _businessNumber = $0.businessNumber {
+                    businessNumbers.insert(_businessNumber)
+                }
+            }
+            let callers = clients.compactMap({ $0.Name })
+            let phoneNumbers = businessNumbers.compactMap({ $0.number })
+            print("Clients: \(callers)")
+            print("phoneNumbers: \(phoneNumbers)")
+            
+        }
     }
     
     // MARK: - Helpers
@@ -69,11 +94,12 @@ extension MissedCallsController: UITableViewDelegate {
 extension MissedCallsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return persons.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MissedCallsController.reuseId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MissedCallsController.reuseId, for: indexPath) as! MissedCallsCell
+        cell.person = persons[indexPath.row]
         return cell
     }
     
