@@ -14,6 +14,7 @@ class MissedCallsController: UIViewController {
     private let tableView = UITableView()
     private static let reuseId = "MissedCallsCell"
     private var networkDataFetcher = NetworkDataFetcher()
+    private var missedCalls = [MissedCall]()
     
     // MARK: - Lifecycle
     
@@ -30,13 +31,20 @@ class MissedCallsController: UIViewController {
     
     // MARK: - API
     
-    func fetchClients() {
-        // 
+    private func fetchClients() {
+        networkDataFetcher.fetchClients { [weak self] result in
+            switch result {
+            case .success(let calls):
+                self?.missedCalls = calls
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     // MARK: - Helpers
     
-    func cofigureUI() {
+    private func cofigureUI() {
         view.backgroundColor = .white
         navigationController?.navigationBar.barStyle = .black
         
@@ -44,7 +52,7 @@ class MissedCallsController: UIViewController {
         
     }
     
-    func configurationTableView() {
+    private func configurationTableView() {
         tableView.backgroundColor = .white
         tableView.rowHeight = 96
         tableView.register(MissedCallsCell.self, forCellReuseIdentifier: MissedCallsController.reuseId)
@@ -75,12 +83,12 @@ extension MissedCallsController: UITableViewDelegate {
 extension MissedCallsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return persons.count
+        return missedCalls.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MissedCallsController.reuseId, for: indexPath) as! MissedCallsCell
-        cell.person = persons[indexPath.row]
+        cell.missedCall = missedCalls[indexPath.row]
         return cell
     }
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ListMissedCallViewModel: TableMissedCallViewModelType {
+final class ListMissedCallViewModel {
     
     private let missedCalls: MissedCall
     
