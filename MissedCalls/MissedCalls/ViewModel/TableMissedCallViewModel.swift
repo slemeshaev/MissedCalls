@@ -6,3 +6,29 @@
 //
 
 import Foundation
+
+final class TableMissedCallViewModel: TableMissedCallViewModelType {
+    
+    private let missedCalls: MissedCall
+    
+    var name: String {
+        return missedCalls.name
+    }
+
+    var number: String {
+        return missedCalls.number
+    }
+    
+    var duration: String {
+        return missedCalls.duration
+    }
+    
+    var dataCall: String {
+        return missedCalls.dataCall
+    }
+    
+    init(missedCalls: MissedCall) {
+        self.missedCalls = missedCalls
+    }
+    
+}
